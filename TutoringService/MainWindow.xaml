@@ -10,21 +10,21 @@
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="File">
-                <MenuItem Header="LoadData" Click="LoadData"></MenuItem>
-                <MenuItem Header="SaveData" Click="SaveData"></MenuItem>
+                <MenuItem Header="LoadData" ></MenuItem>
+                <MenuItem Header="SaveData" ></MenuItem>
             </MenuItem>               
             
         </Menu>
 
         <ToolBar DockPanel.Dock="Top">
-            <ComboBox Name="ComboBoxStudents" SelectionChanged="ComboBoxSelected"></ComboBox>
-            <CheckBox Content="4b" Name="CheckBox4A" Checked="CheckBox4BChecked" Unchecked="CheckBox4BUnchecked"></CheckBox>
-            <CheckBox Content="4a" Name="CheckBox4B" Checked="CheckBox4AChecked" Unchecked="CheckBox4AUnchecked"></CheckBox>
+            <ComboBox Name="ComboBoxStudents" SelectionChanged="ComboBoxStudents_SelectionChanged"></ComboBox>
+            <CheckBox Content="4b" Name="CheckBox4B" Checked="Checked" Unchecked="Checked"></CheckBox>
+            <CheckBox Content="4a" Name="CheckBox4A" Checked="Checked" Unchecked="Checked"></CheckBox>
         </ToolBar>
 
         <Label DockPanel.Dock="Top" Background="LightBlue" Name="LabelStudentName" HorizontalContentAlignment="Center"></Label>
 
-        <Grid>
+        <Grid Height="364" VerticalAlignment="Bottom">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -36,26 +36,26 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <GroupBox Name="SchoolLevel" Header="School Level" Grid.Column="0" Grid.Row="0">
+            <GroupBox Name="SchoolLevel" Header="School Level" Grid.Column="0" Grid.Row="0" Margin="30">
                 <StackPanel Name="GroupBoxSchoolLevel">
                     
                 </StackPanel>
             </GroupBox>
 
-            <GroupBox Name="Subject" Header="Subject" Grid.Column="0" Grid.Row="1">
+            <GroupBox Name="Subject" Header="Subject" Grid.Column="0" Grid.Row="1" Margin="30">
                 <StackPanel Name ="GroupBoxSubject">
                     
                 </StackPanel>
             </GroupBox>
 
             <StackPanel Grid.Column="1" Grid.Row="0">
-                <Button Content="Add" Width="60" Height="20" Click="AddTutoringService"></Button>
+                <Button Content="Add" Width="60" Height="20" Click="Button_Click" Margin="30"></Button>
                 <Label Name="LabelTutoringService"></Label>
-                <ListBox Name="ListBoxTutoringService"></ListBox>
+                <ListBox x:Name="ListBoxTutoringService"/>
             </StackPanel>            
 
             <StackPanel Grid.Column="2" Grid.Row="0">
-                <Image Name="ImageStudent" Width="152" Height="270"></Image>
+                <Image x:Name="ImageStudent" Width="102" Height="220" Source="Images\\Moshammer_Julian.jpg"/>
             </StackPanel>
         </Grid>
         

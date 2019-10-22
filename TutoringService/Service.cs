@@ -10,20 +10,19 @@ namespace TutoringService
     class Service
     {
         public int Level { get; set; }
-        public int[] Levels { get; }
+        public static int[] Levels { get; }
         public string Subject { get; set; }
-        public List<string> Subjects { get; }
+        public static List<string> Subjects { get; }
 
-        static Service() { }
-        public string ToString(){            
+        static Service() {
+            Levels = new int[] { 1, 2, 3, 4, 5 };
+            string[] lines = File.ReadAllLines("subjects.csv");
+            Subjects = lines[0].Split(';').ToList();
+        }
+        public override string ToString()
+        {            
             return $"{Subject} in {Level}.Klassen";
-        }
+        }      
 
-        static 
-
-        public static Service Parse(string part)
-        {
-            return new Service { Subject = part };
-        }
     }
 }

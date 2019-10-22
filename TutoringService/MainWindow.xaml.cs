@@ -21,7 +21,7 @@ namespace TutoringService
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Student> students;
+        List<Student> students;        
         public MainWindow()
         {
             InitializeComponent();
@@ -29,28 +29,92 @@ namespace TutoringService
 
         public void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            using (var reader = new StreamReader("subjects.csv"))
-            {
-                string line = reader.ReadToEnd();
-                string[] parts = line.Split(';');
-                foreach (string part in parts)
-                {
-                    Console.WriteLine(part);
-                    Student.Parse(part);                    
-                }                       
-            }
+            students = new List<Student>();
 
+            //StreamReader?
             using (var reader = new StreamReader("students.csv"))
             {
                 string[] lines = File.ReadAllLines("students.csv");
-                
+
                 for (int i = 0; i < lines.Length; i++)
                 {
                     string line = lines[i];
-                    Console.WriteLine(line);
-                    Student.Parse(line);                   
+                    Student student = Student.Parse(line);
+                    students.Add(student);
+                    ComboBoxStudents.Items.Add(student);
+                }
+            }
+
+            foreach (var level in Service.Levels)
+            {
+                GroupBoxSchoolLevel.Children.Add(new RadioButton { Content = level.ToString() });
+            }
+
+            foreach (var subject in Service.Subjects)
+            {
+                GroupBoxSubject.Children.Add(new RadioButton { Content = subject });
+            }
+        }
+
+        private void ComboBoxStudents_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Student student = ComboBoxStudents.SelectedItem as Student;
+            foreach (var service in student.Services)
+            {
+                ListBoxTutoringService.Items.Add(service.ToString());
+            }
+            LabelStudentName.Content = student.ToString();
+            ImageStudent.Source = new BitmapImage(new Uri(student.ImagePath, UriKind.Relative));
+        }        
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            int level = 0;
+            foreach (var lev in GroupBoxSchoolLevel.Children)
+            {
+                if ((lev as RadioButton).IsChecked ?? false)
+                {
+                    level = int.Parse((lev as RadioButton).Content.ToString());
+                }
+            }
+
+            string subject = "";
+            foreach (var sub in GroupBoxSubject.Children)
+            {
+                if ((sub as RadioButton).IsChecked ?? false)
+                {
+                    subject = (sub as RadioButton).Content.ToString();
+                }
+            }
+
+            Service service = new Service { Level = level, Subject = subject };
+
+            ListBoxTutoringService.Items.Add(service);            
+            (ComboBoxStudents.SelectedItem as Student).Services.Add(service);
+            LabelTutoringService.Content = $"{(ComboBoxStudents.SelectedItem as Student).Services.Count} Nachhilfen:";
+        }
+
+        private void Checked(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ComboBoxStudents.Items.Clear();
+            }catch(NullReferenceException ex)
+            {
+                
+            };            
+
+            foreach (var student in students)
+            {
+                if((CheckBox4A.IsChecked ?? false) && (student.Clazz.Equals("4a")))
+                {
+                    ComboBoxStudents.Items.Add(student);
+                }else if((CheckBox4B.IsChecked ?? false) && (student.Clazz.Equals("4b")))
+                {
+                    ComboBoxStudents.Items.Add(student);
                 }
             }
         }
     }
+    
 }
