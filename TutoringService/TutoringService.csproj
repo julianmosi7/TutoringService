@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E46C0D95-A898-45B2-9F8A-869472FDDB6F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>TutoringService</RootNamespace>
+    <AssemblyName>TutoringService</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Service.cs" />
+    <Compile Include="Student.cs" />
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="students.csv" />
+    <None Include="subjects.csv" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Achleitner_Mathias.jpg" />
+    <Resource Include="Images\Arthofer_Isabelle.jpg" />
+    <Resource Include="Images\Bauer_Elias.jpg" />
+    <Resource Include="Images\Buchenberger_Fabian.jpg" />
+    <Resource Include="Images\Doppelbauer_Oliver.jpg" />
+    <Resource Include="Images\Eckerstorfer_Andreas.jpg" />
+    <Resource Include="Images\Eckmayr_Raphael.jpg" />
+    <Resource Include="Images\Edinger_Alexander.jpg" />
+    <Resource Include="Images\Eggetsberger_Florian.jpg" />
+    <Resource Include="Images\Engelberger_David.jpg" />
+    <Resource Include="Images\Engertsberger_Simon.jpg" />
+    <Resource Include="Images\Enzenhofer_Christoph.jpg" />
+    <Resource Include="Images\Felek_Emir.jpg" />
+    <Resource Include="Images\Fischer_Julian.jpg" />
+    <Resource Include="Images\Foro_Lukas.jpg" />
+    <Resource Include="Images\Gahbauer_Michael.jpg" />
+    <Resource Include="Images\Gangl_David.jpg" />
+    <Resource Include="Images\Gebhart_Martin.jpg" />
+    <Resource Include="Images\Groiß_Tobias.jpg" />
+    <Resource Include="Images\Grubauer_Max.jpg" />
+    <Resource Include="Images\Gumpinger_Lukas.jpg" />
+    <Resource Include="Images\Hamader_Severin.jpg" />
+    <Resource Include="Images\Heißbauer_Paul.jpg" />
+    <Resource Include="Images\Humer_Lukas.jpg" />
+    <Resource Include="Images\Hörzi_Valentin.jpg" />
+    <Resource Include="Images\Jodlbauer_Lukas.jpg" />
+    <Resource Include="Images\Kadletz_Timo.jpg" />
+    <Resource Include="Images\Kaiser_Laurenz.jpg" />
+    <Resource Include="Images\Koziol_Klaus.jpg" />
+    <Resource Include="Images\Krenn_Paul.jpg" />
+    <Resource Include="Images\Kronlachner_Julian.jpg" />
+    <Resource Include="Images\Kronschläger_Sebastian.jpg" />
+    <Resource Include="Images\Mader_Laurenz.jpg" />
+    <Resource Include="Images\Moshammer_Julian.jpg" />
+    <Resource Include="Images\Oliver_Nico.jpg" />
+    <Resource Include="Images\Ortner_Benedikt.jpg" />
+    <Resource Include="Images\Riffert_Daniel.jpg" />
+    <Resource Include="Images\Scheuringer_Alex.jpg" />
+    <Resource Include="Images\Schmidmair_Sofia.jpg" />
+    <Resource Include="Images\Schätzl_Sebastian.jpg" />
+    <Resource Include="Images\Schörgendorfer_Alexander.jpg" />
+    <Resource Include="Images\Seifriedsberger_Manuel.jpg" />
+    <Resource Include="Images\Vucak_Sven.jpg" />
+    <Resource Include="Images\Wageneder_Sandra.jpg" />
+    <Resource Include="Images\Wetzlmayer_Matthias.jpg" />
+    <Resource Include="Images\Wiesinger_Paul.jpg" />
+    <Resource Include="Images\Zeller_Lorenz.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
